@@ -1,0 +1,38 @@
+# 开发环境
+spring:
+  application:
+    name: issacmsc-eurekaServer-config
+  profiles: dev
+
+server:
+  port: 8400
+eureka:
+  instance:
+    # 指定 Eureka 主机
+    hostname: eureka8400.com
+  client:
+    # 指定当前主机是否需要注册到 Eureka 中
+    register-with-eureka: false
+    # 指定当前主机是否需要获取 Eureka 注册信息
+    fetch-registry: false
+    service-url: # 暴露服务中心地址
+      defaultZone: http://eureka8400.com:8400/eureka
+
+# 测试环境
+spring:
+  application:
+    name: issacmsc-config-test
+  profiles: test
+server:
+  port: 8500
+eureka:
+  instance:
+    # 指定 Eureka 主机
+    hostname: eureka8500.com
+  client:
+    # 指定当前主机是否需要注册到 Eureka 中
+    register-with-eureka: false
+    # 指定当前主机是否需要获取 Eureka 注册信息
+    fetch-registry: false
+    service-url: # 暴露服务中心地址
+      defaultZone: http://eureka8500.com:8500/eureka

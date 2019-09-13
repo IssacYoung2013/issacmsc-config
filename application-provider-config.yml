@@ -1,0 +1,91 @@
+# 开发环境
+server:
+  port: 8084
+
+spring:
+  profiles: dev
+  jpa:
+    # 启动应用是否自动建表，默认为false
+    generate-ddl: true
+    # 是否在控制台显示 SQL 语句，默认为 false
+    show-sql: true
+    # 设置应用启动时不重新建表
+    hibernate:
+      ddl-auto: none
+  # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql:///test02?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: rootroot
+  # 指定当前微服务（提供者）对外暴露的名称
+  application:
+    name: issacmsc-provider-depart
+
+logging:
+  # 设置日志输出格式
+  pattern:
+    console: level-%level %msg%n
+  level:
+    # Spring Boot 启动时的日志级别
+    root: info
+    # Hibernate 运行日志级别
+    org.hibernate: info
+    # 在 show-sql 为true时显示动态参数
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    # 在 show-sql 为true时显示动态结果
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.issac.provider: debug
+eureka:
+  client:
+    # 指定 Eureka 服务注册中心
+    service-url:
+      defaultZone: http://eureka8400.com:8400/eureka
+  instance:
+    instance-id: issac-msc-provider-8084
+
+# 测试环境
+server:
+  port: 8085
+
+spring:
+  profiles: test
+  jpa:
+    # 启动应用是否自动建表，默认为false
+    generate-ddl: true
+    # 是否在控制台显示 SQL 语句，默认为 false
+    show-sql: true
+    # 设置应用启动时不重新建表
+    hibernate:
+      ddl-auto: none
+  # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql:///test03?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: rootroot
+  # 指定当前微服务（提供者）对外暴露的名称
+  application:
+    name: issacmsc-provider-depart
+
+logging:
+  # 设置日志输出格式
+  pattern:
+    console: level-%level %msg%n
+  level:
+    # Spring Boot 启动时的日志级别
+    root: info
+    # Hibernate 运行日志级别
+    org.hibernate: info
+    # 在 show-sql 为true时显示动态参数
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    # 在 show-sql 为true时显示动态结果
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.issac.provider: debug
+eureka:
+  client:
+    # 指定 Eureka 服务注册中心
+    service-url:
+      defaultZone: http://eureka8500.com:8500/eureka
+  instance:
+    instance-id: issac-msc-provider-8085
