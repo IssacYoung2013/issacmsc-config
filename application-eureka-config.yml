@@ -18,10 +18,11 @@ eureka:
     service-url: # 暴露服务中心地址
       defaultZone: http://eureka8400.com:8400/eureka
 
+---
 # 测试环境
 spring:
   application:
-    name: issacmsc-config-test
+    name: issacmsc-eurekaServer-config
   profiles: test
 server:
   port: 8500
